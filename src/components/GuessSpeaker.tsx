@@ -8,7 +8,8 @@ const GuessSpeaker = () => {
     { name: 'firstName', label: 'First Name', type: 'text', required: true },
     { name: 'lastName', label: 'Last Name', type: 'text', required: true },
     { name: 'email', label: 'Email Address', type: 'email', required: true },
-    { name: 'expectations', label: 'What do you expect from the event?', type: 'text' }
+    { name: 'expectations', label: 'What do you expect from the event?', type: 'text' },
+    { name: 'guess', label: 'Guess our speaker!', type: 'text', required: true}
   ];
 
   const handleSubmit = (formData: { [key: string]: string }) => {
