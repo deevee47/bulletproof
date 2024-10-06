@@ -21,7 +21,7 @@ const InputField: React.FC<InputFieldProps> = ({ label, name, type = 'text', val
           type={type}
           value={value}
           onChange={onChange}
-          placeholder={`Enter your ${label.toLowerCase()}`}
+          placeholder={`Enter your ${name.toLowerCase()}`}
           className="w-full px-4 py-2 rounded-lg bg-white/5 border border-white/10 focus:border-orange-300/50 focus:ring-2 focus:ring-orange-300/50 transition-all duration-300 text-white placeholder:text-gray-400 outline-none backdrop-blur-sm"
         />
         <div className="absolute inset-0 rounded-lg bg-gradient-to-b from-white/5 to-transparent pointer-events-none"></div>
