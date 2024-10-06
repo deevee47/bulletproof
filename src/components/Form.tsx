@@ -30,9 +30,9 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
     onSubmit(formData);
   };
 
-  const handleClear = () => {
-    setFormData(fields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {}));
-  };
+  // const handleClear = () => {
+  //   setFormData(fields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {}));
+  // };
 
   return (
     <form onSubmit={handleSubmit} className='rounded-2xl p-8 space-y-6 relative'>
@@ -46,9 +46,11 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
           onChange={handleChange}
         />
       ))}
-      <div className="flex justify-between space-x-4">
+      <div className="flex justify-center items-center p-10 px-44">
+        <div className="flex justify-center items-center flex-1 space-x-4 text-center">
         <Button type="submit" variant="primary">Submit Your Guess</Button>
-        <Button type="button" variant="secondary" onClick={handleClear}>Clear</Button>
+        {/* <p className='underline text-gray-400' onClick={handleClear}>Clear</p> */}
+        </div>
       </div>
     </form>
   );
