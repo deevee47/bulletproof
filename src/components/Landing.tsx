@@ -1,13 +1,12 @@
 import React from 'react'
 import BlurIn from './ui/blur-in'
-import TopographicBackground from './TopographicBackground'
 import Image from 'next/image'
 import { ChevronsDown } from 'lucide-react'
 
 const Landing = () => {
     return (
         <div className='flex relative min-h-screen overflow-hidden'>
-            <TopographicBackground />
+
             <div className='z-10 w-full px-4 sm:px-6 lg:px-8 flex justify-center items-center'>
                 <div className='w-full flex flex-col items-center justify-center'>
                     <div className='relative w-full'>

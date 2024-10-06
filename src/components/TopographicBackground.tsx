@@ -34,7 +34,7 @@ const TopographicBackground: React.FC = () => {
         shapesLength: number
     ) => {
         const points = 500;
-        const pulsateEffect = Math.sin(pulsate) * 0.05;
+        const pulsateEffect = Math.sin(pulsate) * 0.04;
         const adjustedRadius = radius * (1 + pulsateEffect);
 
         const circularAmplitude = 20;
@@ -44,8 +44,8 @@ const TopographicBackground: React.FC = () => {
             y: Math.sin(circularTime + layerOffset) * circularAmplitude
         };
 
-        const secondaryAmplitude = 10;
-        const secondaryFrequency = 0.7;
+        const secondaryAmplitude = 8;
+        const secondaryFrequency = 0.5;
         const secondaryMotion = {
             x: Math.cos(circularTime * secondaryFrequency) * secondaryAmplitude,
             y: Math.sin(circularTime * secondaryFrequency) * secondaryAmplitude
@@ -98,7 +98,7 @@ const TopographicBackground: React.FC = () => {
 
         // Create initial set of shapes
         const createOrUpdateShapes = () => {
-            const maxRadius = Math.max(width, height) * 0.8;
+            const maxRadius = Math.max(width, height) * 0.6;
             const shapesCount = 80;
 
             if (shapes.length === 0) {
@@ -129,8 +129,8 @@ const TopographicBackground: React.FC = () => {
         const animate = () => {
             timeRef.current += 0.001;
             pulsateRef.current += 0.02;
-            circularMotionRef.current += 0.005;
-            rotationRef.current += 0.005;
+            circularMotionRef.current += 0.004;
+            rotationRef.current += 0.004;
             updateShapes(timeRef.current, pulsateRef.current, circularMotionRef.current, rotationRef.current);
             requestAnimationFrame(animate);
         };
