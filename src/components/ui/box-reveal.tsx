@@ -5,7 +5,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 
 interface BoxRevealProps {
   children: JSX.Element;
-  width?: "fit-content" | "100%";
+  width?: string;
   boxColor?: string;
   duration?: number;
 }
@@ -13,8 +13,8 @@ interface BoxRevealProps {
 export const BoxReveal = ({
   children,
   width = "fit-content",
-  boxColor,
-  duration,
+  boxColor = "#5046e6",
+  duration = 0.5,
 }: BoxRevealProps) => {
   const mainControls = useAnimation();
   const slideControls = useAnimation();
@@ -26,9 +26,6 @@ export const BoxReveal = ({
     if (isInView) {
       slideControls.start("visible");
       mainControls.start("visible");
-    } else {
-      slideControls.start("hidden");
-      mainControls.start("hidden");
     }
   }, [isInView, mainControls, slideControls]);
 
@@ -41,7 +38,7 @@ export const BoxReveal = ({
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: duration ? duration : 0.5, delay: 0.25 }}
+        transition={{ duration, delay: 0.25 }}
       >
         {children}
       </motion.div>
@@ -53,7 +50,7 @@ export const BoxReveal = ({
         }}
         initial="hidden"
         animate={slideControls}
-        transition={{ duration: duration ? duration : 0.5, ease: "easeIn" }}
+        transition={{ duration, ease: "easeIn" }}
         style={{
           position: "absolute",
           top: 4,
@@ -61,7 +58,7 @@ export const BoxReveal = ({
           left: 0,
           right: 0,
           zIndex: 20,
-          background: boxColor ? boxColor : "#5046e6",
+          background: boxColor,
         }}
       />
     </div>
