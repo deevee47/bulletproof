@@ -46,8 +46,8 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
           onChange={handleChange}
         />
       ))}
-      <div className="flex justify-center items-center p-10 px-44">
-        <div className="flex justify-center items-center flex-1 space-x-4 text-center">
+      <div className="flex justify-center items-center p-10">
+        <div className="flex justify-center items-center text-center">
         <Button type="submit" variant="primary">Submit Your Guess</Button>
         {/* <p className='underline text-gray-400' onClick={handleClear}>Clear</p> */}
         </div>
