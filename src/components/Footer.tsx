@@ -8,7 +8,7 @@ const Footer= () => {
         <ul className="flex justify-center items-center gap-2">
           {/* <p>Namaste 🙏</p> */}
           <p>🙏</p>
-          <p>From ATC Team</p>
+          <p>From ATC Team, Fun Fact: The background is all mathematics, no image :P</p>
         </ul>
       </nav>
      
