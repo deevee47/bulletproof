@@ -16,8 +16,8 @@ export const BoxReveal = ({
   boxColor = "#5046e6",
   duration = 0.5,
 }: BoxRevealProps) => {
-  const mainControls = useAnimation(); // Control for the children
-  const slideControls = useAnimation(); // Control for the yellow div
+  const mainControls = useAnimation(); 
+  const slideControls = useAnimation(); 
   const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true });
 

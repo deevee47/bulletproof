@@ -5,11 +5,11 @@ import BoxReveal from './ui/box-reveal';
 
 const GuessSpeaker = () => {
   const fields = [
-    { name: 'firstName', label: 'First Name*', type: 'text', required: true },
-    { name: 'lastName', label: 'Last Name*', type: 'text', required: true },
-    { name: 'email', label: 'Bennett Email Address*', type: 'email', required: true },
-    { name: 'expectations', label: 'What do you expect from the event?', type: 'text' },
-    { name: 'guess', label: 'Guess our speakers!*', type: 'text', required: true }
+    {name: 'entry.2029444953', label: 'First Name', type: 'text',placeholder:"Enter Your First Name", required: true },
+    { name: 'entry.414857056', label: 'Last Name', type: 'text',placeholder:"Enter Your Last Name", required: true },
+    { name: 'entry.909872393', label: 'Bennett Email Address', type: 'email',placeholder:"Enter Bennett Email Adress", required: true },
+    { name: 'entry.726139344', label: 'What do you expect from the event?',placeholder:"We can make anything happen!", type: 'text', required: true },
+    { name: 'entry.660628216', label: 'Guess our speakers!', type: 'text',placeholder:"Tickle your brain and Guess!",required: true }
   ];
 
   const handleSubmit = (formData: { [key: string]: string }) => {
@@ -18,7 +18,7 @@ const GuessSpeaker = () => {
 
   return (
     <div className='relative min-h-screen flex flex-col justify-center overflow-hidden sm:mt-4 -mt-20'>
-      {/* Content container */}
+      
       <div className='relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6  py-8 sm:py-12'>
         <div className="w-full flex items-center justify-center mb-8 sm:mb-12">
           <BoxReveal boxColor={"#fbd38d"} duration={0.5}>
