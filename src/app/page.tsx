@@ -14,8 +14,8 @@ export default function Home() {
       <Navbar />
       <TopographicBackground />
       <Landing />
-      <GuessSpeaker />
       <PreviousBulletProof />
+      <GuessSpeaker />
       <Footer />
     </div>
   );

@@ -1,39 +1,31 @@
 "use client";
 import { Marquee } from "@/components/ui/marquee";
+import Image from "next/image";
 
 const logos = [
   {
-    name: "Microsoft",
-    img: "https://picsum.photos/id/1/200/300",
+    img: "/1.jpg",
   },
   {
-    name: "Apple",
-    img: "https://picsum.photos/id/2/200/300",
+    img: "/2.jpg",
   },
   {
-    name: "Google",
-    img: "https://picsum.photos/id/3/200/300",
+    img: "/3.jpg",
   },
   {
-    name: "Facebook",
-    img: "https://picsum.photos/id/4/200/300",
+    img: "/4.jpg",
   },
   {
-    name: "LinkedIn",
-    img: "https://picsum.photos/id/5/200/300",
-  },
-  {
-    name: "Twitter",
-    img: "https://picsum.photos/id/6/200/300",
+    img: "/5.jpg",
   },
 ];
 
 export function Marquee1() {
   return (
-    <div className="relative flex h-full w-full max-w-[400px] flex-col items-center justify-center gap-4 overflow-hidden rounded-lg"> {/* Responsive width */}
-      <div className="flex flex-row gap-2 [perspective:300px]"> {/* Reduced gap between logos */}
+    <div className="relative flex h-full w-96 flex-col items-center justify-center gap-4 overflow-hidden rounded-lg">
+      <div className="flex flex-row gap-4 [perspective:300px]">
         <Marquee
-          className="h-32 md:h-48 lg:h-96 justify-center overflow-hidden [--duration:60s] [--gap:1rem]"
+          className="h-screen justify-center overflow-hidden [--duration:60s] [--gap:1rem]"
           vertical
           style={{
             transform:
@@ -41,11 +33,13 @@ export function Marquee1() {
           }}
         >
           {logos.map((data, idx) => (
-            <img
+            <Image
               key={idx}
               src={data.img}
               alt={data.name}
-              className="mx-auto h-auto w-3/4 md:w-2/3 lg:w-3/4 cursor-pointer rounded-xl border border-neutral-300 transition-all duration-300 hover:ring-1 hover:ring-neutral-300"
+              height={600}
+              width={1000}
+              className="mx-auto h-full w-3/4 cursor-pointer rounded-xl border border-neutral-300 transition-all duration-300 hover:ring-1 hover:ring-neutral-300"
             />
           ))}
         </Marquee>

@@ -15,17 +15,20 @@ const GuessSpeaker = () => {
   const handleSubmit = (formData: { [key: string]: string }) => {
     console.log('Form submitted:', formData);
   };
+  const message = "Leaving sneaky hints all over the website! \;\)";
+
 
   return (
     <div className='relative min-h-screen flex flex-col justify-center overflow-hidden sm:mt-4 -mt-20'>
       
       <div className='relative z-10 w-full max-w-4xl mx-auto px-4 sm:px-6  py-8 sm:py-12'>
-        <div className="w-full flex items-center justify-center mb-8 sm:mb-12">
+        <div className="w-full flex flex-col items-center justify-center mb-8 sm:mb-12">
           <BoxReveal boxColor={"#fbd38d"} duration={0.5}>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl whitespace-nowrap font-semibold text-center bg-clip-text text-transparent bg-gradient-to-b from-gray-200 via-gray-400 to-gray-600 [text-shadow:_1px_1px_1px_rgb(0_0_0_/_20%)]">
               Guess Our Speakers
             </h1>
           </BoxReveal>
+          <h3 className='text-gray-400 pt-2 italic animate-pulse'>{message} </h3>
         </div>
 
         <div className="w-full">
