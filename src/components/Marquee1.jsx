@@ -22,7 +22,7 @@ const logos = [
 
 export function Marquee1() {
   return (
-    <div className="relative flex h-full w-96 flex-col items-center justify-center gap-4 overflow-hidden rounded-lg">
+    <div className="relative flex h-full w-full max-w-md md:max-w-lg lg:max-w-xl xl:max-w-2xl flex-col items-center justify-center gap-4 overflow-hidden rounded-lg">
       <div className="flex flex-row gap-4 [perspective:300px]">
         <Marquee
           className="h-screen justify-center overflow-hidden [--duration:60s] [--gap:1rem]"
@@ -36,10 +36,10 @@ export function Marquee1() {
             <Image
               key={idx}
               src={data.img}
-              alt={data.name}
+              alt={`Logo ${idx + 1}`}
               height={600}
               width={1000}
-              className="mx-auto h-full w-3/4 cursor-pointer rounded-xl border border-neutral-300 transition-all duration-300 hover:ring-1 hover:ring-neutral-300"
+              className="mx-auto h-auto max-w-full cursor-pointer rounded-xl border border-neutral-300 transition-all duration-300 hover:ring-1 hover:ring-neutral-300"
             />
           ))}
         </Marquee>
