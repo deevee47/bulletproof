@@ -19,14 +19,15 @@ function PreviousBulletProof() {
           influencer Yash Garg. Attendees had the chance to participate in
           sessions and workshops, where Yash shared insights from his
           experiences in the influencer space. The event focused on practical
-          advice and personal growth.
+          advice and personal growth. Anyways here is a out of context
+          quote for somoeone: JavaScript's best-kept secret, with one and half a million squad
         </p>
-        <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl text-left z-[1000] relative mt-4">
+        {/* <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl text-left z-[1000] relative mt-4">
           Anyways here is a out of context quote: With over one and half a
           million at his back, he breaks down code without a crack. JS is his
           language, his forte, guiding devs to learn the right way. Guess who's
           coming?
-        </p>
+        </p> */}
       </div>
       <div className="flex items-center justify-center gap-[8px] z-[1000] relative w-full md:w-1/2 mt-6 h-full">
         {" "}
