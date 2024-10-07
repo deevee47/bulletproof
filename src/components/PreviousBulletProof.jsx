@@ -13,6 +13,7 @@ function PreviousBulletProof() {
         <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl text-left z-[1000] relative mt-4">
           Bulletproof was a two-day event held at Bennett University, featuring influencer Yash Garg. Attendees had the chance to participate in sessions and workshops, where Yash shared insights from his experiences in the influencer space. The event focused on practical advice and personal growth.
         </p>
+        
       </div>
 
       <div className="flex items-center justify-center gap-[8px] z-[1000] relative w-full md:w-1/2 mt-6"> {/* Full width on mobile */}
