@@ -14,7 +14,7 @@ interface BlurInProps {
   duration?: number;
 }
 
-const BlurIn = React.memo(({ word, className, variant, duration = 1.5 }: BlurInProps) => {
+const BlurIn = React.memo(({ word, className, variant, duration = 1 }: BlurInProps) => {
   const defaultVariants = {
     hidden: { filter: "blur(12px)", opacity: 0, translateY: 20 },
     visible: { filter: "blur(0px)", opacity: 1, translateY: 0 },
@@ -38,5 +38,6 @@ const BlurIn = React.memo(({ word, className, variant, duration = 1.5 }: BlurInP
     </motion.h1>
   );
 });
+BlurIn.displayName = 'BlurIn';
 
 export default BlurIn;

@@ -8,13 +8,14 @@ const TopographicBackground: React.FC = () => {
     const circularMotionRef = useRef(0);
     const rotationRef = useRef(0);
     const animationFrameIdRef = useRef<number>();
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+
 
     // Throttled mouse move handler using requestAnimationFrame
     const handleMouseMove = useCallback((event: MouseEvent) => {
         if (!animationFrameIdRef.current) {
             animationFrameIdRef.current = requestAnimationFrame(() => {
-                setMousePosition({ x: event.clientX, y: event.clientY });
+
                 animationFrameIdRef.current = undefined;
             });
         }
@@ -86,7 +87,8 @@ const TopographicBackground: React.FC = () => {
         const svg = svgRef.current;
         let width = window.innerWidth;
         let height = window.innerHeight;
-        let shapes: SVGPathElement[] = [];
+        const shapes: SVGPathElement[] = [];
+
 
         const handleResize = () => {
             width = window.innerWidth;

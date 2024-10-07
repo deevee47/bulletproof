@@ -9,7 +9,7 @@ import { AlertCircle } from 'lucide-react';
 type Field = {
   name: string;
   label: string;
-  type?: string;
+  type?: string | any;
   placeholder: string;
   required?: boolean;
 };
