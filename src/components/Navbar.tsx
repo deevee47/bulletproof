@@ -16,12 +16,10 @@ const Navbar = () => {
   const [activeLink, setActiveLink] = useState(pathname);
 
   useEffect(() => {
-    // Update activeLink when pathname changes
     setActiveLink(pathname);
   }, [pathname]);
 
   useEffect(() => {
-    // Function to handle scroll and update activeLink based on section visibility
     const handleScroll = () => {
       const sections = navItems
         .filter(item => item.href.startsWith('#'))
@@ -38,7 +36,6 @@ const Navbar = () => {
         }
       }
 
-      // If no section is visible, set activeLink to home
       if (window.scrollY < 100) {
         setActiveLink('/');
       }
@@ -51,9 +48,11 @@ const Navbar = () => {
   return (
     <header className="z-[99999] fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-2xl px-4">
       <nav className="relative px-4 py-3 rounded-2xl backdrop-blur-md bg-black/20 border border-white/10 shadow-lg">
-        <ul className="flex justify-center items-center gap-2">
+        <ul className="flex justify-center items-center gap-1 sm:gap-2">
           {navItems.map((item) => (
-            <li key={item.href}>
+            <li key={item.href} className={cn(
+              item.href === '/' && 'hidden sm:block' // Hide Home link on mobile
+            )}>
               <Link
                 href={item.href}
                 onClick={(e) => {
@@ -69,7 +68,7 @@ const Navbar = () => {
                   }
                 }}
                 className={cn(
-                  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
+                  "px-3 sm:px-4 py-2 rounded-full text-sm font-medium transition-all duration-300",
                   "hover:bg-white/10 hover:text-white",
                   activeLink === item.href
                     ? "bg-white/15 text-white"
