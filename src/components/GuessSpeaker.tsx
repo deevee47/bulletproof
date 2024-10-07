@@ -9,7 +9,7 @@ const GuessSpeaker = () => {
     { name: 'entry.414857056', label: 'Last Name', type: 'text',placeholder:"Enter Your Last Name", required: true },
     { name: 'entry.909872393', label: 'Bennett Email Address', type: 'email',placeholder:"Enter Bennett Email Adress", required: true },
     { name: 'entry.726139344', label: 'What do you expect from the event?',placeholder:"We can make anything happen!", type: 'text', required: true },
-    { name: 'entry.660628216', label: 'Guess our speakers!', type: 'text',placeholder:"Tickle your brain and Guess!",required: true }
+    { name: 'entry.660628216', label: 'Guess our speakers!', type: 'text',placeholder:"Tickle your brain and Guess!",required: true },
   ];
 
   const handleSubmit = (formData: { [key: string]: string }) => {
