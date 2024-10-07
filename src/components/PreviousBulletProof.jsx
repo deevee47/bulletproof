@@ -1,4 +1,4 @@
-"use client";
+
 import React from "react";
 import { Marquee1 } from "@/components/Marquee1";
 import { Marquee2 } from "@/components/Marquee2";
