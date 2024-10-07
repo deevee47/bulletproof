@@ -19,8 +19,11 @@ type FormProps = {
   onSubmit: (formData: { [key: string]: string }) => void;
 };
 
-const SUBMISSION_LIMIT = 5;
-const COOLDOWN_PERIOD = 60 * 1000; // 1 minute in milliseconds
+// Access environment variables
+const SUBMISSION_LIMIT = parseInt(process.env.NEXT_PUBLIC_SUBMISSION_LIMIT || '5', 10);
+const COOLDOWN_PERIOD = parseInt(process.env.NEXT_PUBLIC_COOLDOWN_PERIOD || '60000', 10);
+const GOOGLE_FORM_URL = process.env.NEXT_PUBLIC_GOOGLE_FORM_URL;
+
 const SUBMISSION_STORAGE_KEY = 'form_submissions';
 const LAST_SUBMISSION_KEY = 'last_submission_time';
 
@@ -41,7 +44,6 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
   const [cooldownRemaining, setCooldownRemaining] = useState(0);
 
   useEffect(() => {
-    // Load submission history from localStorage
     const storedHistory = localStorage.getItem(SUBMISSION_STORAGE_KEY);
     const storedLastSubmission = localStorage.getItem(LAST_SUBMISSION_KEY);
 
@@ -49,7 +51,6 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
       const history: SubmissionHistory = JSON.parse(storedHistory);
       const now = Date.now();
 
-      // Reset if it's been more than 24 hours
       if (now - history.timestamp > 24 * 60 * 60 * 1000) {
         localStorage.removeItem(SUBMISSION_STORAGE_KEY);
         localStorage.removeItem(LAST_SUBMISSION_KEY);
@@ -95,19 +96,16 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Honeypot check
     if (honeypot) {
       console.log('Honeypot triggered');
       return;
     }
 
-    // Submission limit check
     if (submissionCount >= SUBMISSION_LIMIT) {
       setSubmitError('Maximum submission limit reached for today.');
       return;
     }
 
-    // Cooldown period check
     const timeSinceLastSubmission = Date.now() - lastSubmissionTime;
     if (timeSinceLastSubmission < COOLDOWN_PERIOD) {
       const remainingTime = Math.ceil((COOLDOWN_PERIOD - timeSinceLastSubmission) / 1000);
@@ -119,20 +117,17 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
     setSubmitError(null);
 
     try {
-      // Create a hidden iframe
       const iframe = document.createElement('iframe');
       iframe.style.display = 'none';
       document.body.appendChild(iframe);
 
-      // Create a form inside the iframe
       const iframeDoc = iframe.contentWindow?.document;
       if (!iframeDoc) throw new Error('Could not create iframe document');
 
       const form = iframeDoc.createElement('form');
-      form.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdBo95jE1qZv9v5TnibvsipYDcuqDjJoH5J15_LS4ubpkFQXg/formResponse';
+      form.action = GOOGLE_FORM_URL || '';
       form.method = 'POST';
 
-      // Add form data to the iframe form
       Object.entries(formData).forEach(([name, value]) => {
         const input = iframeDoc.createElement('input');
         input.type = 'text';
@@ -142,22 +137,15 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
       });
 
       iframeDoc.body.appendChild(form);
-
-      // Submit the form and handle the response
       form.submit();
 
-      // Clean up the iframe after submission
       setTimeout(() => {
         document.body.removeChild(iframe);
       }, 1000);
 
-      // Update submission history
       updateSubmissionHistory();
-
-      // Call onSubmit callback
       onSubmit(formData);
 
-      // Clear form data
       setFormData(fields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {}));
     } catch (error) {
       setSubmitError('An error occurred while submitting the form. Please try again.');
@@ -168,7 +156,6 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className='rounded-2xl p-8 space-y-6 relative'>
-      {/* Honeypot field - hidden from users */}
       <input
         type="text"
         name="_gotcha"
