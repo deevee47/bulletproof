@@ -1,25 +1,19 @@
 "use client";
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback, useMemo } from 'react';
 
 const TopographicBackground: React.FC = () => {
     const svgRef = useRef<SVGSVGElement>(null);
-    const timeRef = useRef(0);
-    const pulsateRef = useRef(0);
-    const circularMotionRef = useRef(0);
-    const rotationRef = useRef(0);
-    const animationFrameIdRef = useRef<number>();
+    const animationRef = useRef<{
+        time: number;
+        pulsate: number;
+        circularMotion: number;
+        rotation: number;
+    }>({ time: 0, pulsate: 0, circularMotion: 0, rotation: 0 });
+    const shapesRef = useRef<SVGPathElement[]>([]);
+    const dimensionsRef = useRef({ width: 0, height: 0 });
 
-    // Throttled mouse move handler using requestAnimationFrame (no event needed)
-    const handleMouseMove = useCallback(() => {
-        if (!animationFrameIdRef.current) {
-            animationFrameIdRef.current = requestAnimationFrame(() => {
-                animationFrameIdRef.current = undefined;
-            });
-        }
-    }, []);
-
-    // Memoized generateSlimeShape function
-    const generateSlimeShape = useCallback((
+    // Optimize shape generation with memoization
+    const generateSlimeShape = useMemo(() => (
         radius: number,
         variation: number,
         time: number,
@@ -78,78 +72,86 @@ const TopographicBackground: React.FC = () => {
         return `${path}Z`;
     }, []);
 
-    useEffect(() => {
+    const updateDimensions = useCallback(() => {
         if (!svgRef.current) return;
 
-        const svg = svgRef.current;
-        let width = window.innerWidth;
-        let height = window.innerHeight;
-        const shapes: SVGPathElement[] = [];
+        const width = window.innerWidth;
+        const height = window.innerHeight;
+        dimensionsRef.current = { width, height };
 
-        const handleResize = () => {
-            width = window.innerWidth;
-            height = window.innerHeight;
-            svg.setAttribute('width', width.toString());
-            svg.setAttribute('height', height.toString());
-            createOrUpdateShapes(); // Recreate shapes on resize
-        };
+        svgRef.current.setAttribute('viewBox', `0 0 ${width} ${height}`);
+    }, []);
 
-        // Create initial set of shapes
-        const createOrUpdateShapes = () => {
-            const maxRadius = Math.max(width, height) * 0.6;
-            const shapesCount = 80;
+    const createOrUpdateShapes = useCallback(() => {
+        if (!svgRef.current) return;
 
-            if (shapes.length === 0) {
-                for (let i = 0; i < shapesCount; i++) {
-                    const shape = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                    const radius = maxRadius * (i + 1) / shapesCount;
-                    const variation = 0.5 - (i * 0.005);
+        const { width, height } = dimensionsRef.current;
+        const maxRadius = Math.max(width, height) * 0.6;
+        const shapesCount = 80;
 
-                    shape.setAttribute('d', generateSlimeShape(radius, variation, 0, 0, 0, 0, i, width, height, shapesCount));
-                    shape.setAttribute('fill', 'none');
-                    shape.setAttribute('stroke', 'white');
-                    shape.setAttribute('stroke-width', '0.5');
-                    shape.setAttribute('opacity', '0.2');
-                    svg.appendChild(shape);
-                    shapes.push(shape);
-                }
+        if (shapesRef.current.length === 0) {
+            for (let i = 0; i < shapesCount; i++) {
+                const shape = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                const radius = maxRadius * (i + 1) / shapesCount;
+                const variation = 0.5 - (i * 0.005);
+
+                shape.setAttribute('d', generateSlimeShape(radius, variation, 0, 0, 0, 0, i, width, height, shapesCount));
+                shape.setAttribute('fill', 'none');
+                shape.setAttribute('stroke', 'white');
+                shape.setAttribute('stroke-width', '0.5');
+                shape.setAttribute('opacity', '0.2');
+                svgRef.current.appendChild(shape);
+                shapesRef.current.push(shape);
             }
-        };
+        }
+    }, [generateSlimeShape]);
 
-        const updateShapes = (time: number, pulsate: number, circularTime: number, rotationAngle: number) => {
-            shapes.forEach((shape, index) => {
-                const radius = Math.max(width, height) * 0.8 * (index + 1) / shapes.length;
-                const variation = 0.5 - (index * 0.004);
-                shape.setAttribute('d', generateSlimeShape(radius, variation, time, pulsate, circularTime, rotationAngle, index, width, height, shapes.length));
-            });
-        };
+    const animate = useCallback(() => {
+        const { width, height } = dimensionsRef.current;
+        const { current: anim } = animationRef;
 
-        const animate = () => {
-            timeRef.current += 0.001;
-            pulsateRef.current += 0.02;
-            circularMotionRef.current += 0.002;
-            rotationRef.current += 0.002
-            updateShapes(timeRef.current, pulsateRef.current, circularMotionRef.current, rotationRef.current);
-            requestAnimationFrame(animate);
-        };
+        anim.time += 0.001;
+        anim.pulsate += 0.02;
+        anim.circularMotion += 0.002;
+        anim.rotation += 0.002;
 
-        handleResize();
+        shapesRef.current.forEach((shape, index) => {
+            const radius = Math.max(width, height) * 0.8 * (index + 1) / shapesRef.current.length;
+            const variation = 0.5 - (index * 0.004);
+            shape.setAttribute('d', generateSlimeShape(
+                radius, variation, anim.time, anim.pulsate,
+                anim.circularMotion, anim.rotation, index,
+                width, height, shapesRef.current.length
+            ));
+        });
+
+        requestAnimationFrame(animate);
+    }, [generateSlimeShape]);
+
+    useEffect(() => {
+        updateDimensions();
         createOrUpdateShapes();
-        animate();
+        const animationFrame = requestAnimationFrame(animate);
 
-        window.addEventListener('resize', handleResize);
-        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('resize', updateDimensions);
 
         return () => {
-            window.removeEventListener('resize', handleResize);
-            window.removeEventListener('mousemove', handleMouseMove);
-            if (animationFrameIdRef.current) {
-                cancelAnimationFrame(animationFrameIdRef.current);
-            }
+            cancelAnimationFrame(animationFrame);
+            window.removeEventListener('resize', updateDimensions);
         };
-    }, [handleMouseMove, generateSlimeShape]);
+    }, [updateDimensions, createOrUpdateShapes, animate]);
 
-    return <svg ref={svgRef} className="fixed inset-0 w-full h-full" style={{ background: 'black' }} />;
+    return (
+        <svg
+            ref={svgRef}
+            className="fixed inset-0 w-full h-full"
+            style={{
+                background: 'black',
+                willChange: 'transform',
+                transform: 'translateZ(0)'
+            }}
+        />
+    );
 };
 
 export default TopographicBackground;
