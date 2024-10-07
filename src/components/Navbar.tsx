@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <header className=" z-[99999] fixed top-4 left-1/2 transform -translate-x-1/2  w-full max-w-2xl px-4">
-      <nav className="relative px-4 py-3 rounded-full backdrop-blur-md bg-black/20 border border-white/10 shadow-lg">
+      <nav className="relative px-4 py-3 rounded-2xl backdrop-blur-md bg-black/20 border border-white/10 shadow-lg">
         <ul className="flex justify-center items-center gap-2">
           {navItems.map((item) => (
             <li key={item.href}>
