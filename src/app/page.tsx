@@ -9,8 +9,8 @@ export default function Home() {
     <div className="bg-black">
       <TopographicBackground />
       <Landing />
-      <GuessSpeaker />
       <PreviousBulletProof />
+      <GuessSpeaker />
       
     </div>
   );

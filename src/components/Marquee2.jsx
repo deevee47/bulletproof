@@ -1,5 +1,6 @@
 "use client";
 import { Marquee } from "@/components/ui/marquee";
+import Image from "next/image";
 
 const logos = [
   {
@@ -25,7 +26,7 @@ export function Marquee2() {
     <div className="relative flex h-full w-96 flex-col items-center justify-center gap-4 overflow-hidden rounded-lg">
       <div className="flex flex-row gap-4 [perspective:300px]">
         <Marquee
-          className="h-96 md:h-80 lg:h-96 justify-center overflow-hidden [--duration:60s] [--gap:1rem]"
+          className="h-screen justify-center overflow-hidden [--duration:60s] [--gap:1rem]"
           vertical
           style={{
             transform:
@@ -33,10 +34,12 @@ export function Marquee2() {
           }}
         >
           {logos.map((data, idx) => (
-            <img
+            <Image
               key={idx}
               src={data.img}
               alt={data.name}
+              height={600}
+              width={1000}
               className="mx-auto h-full w-3/4 cursor-pointer rounded-xl border border-neutral-300 transition-all duration-300 hover:ring-1 hover:ring-neutral-300"
             />
           ))}
