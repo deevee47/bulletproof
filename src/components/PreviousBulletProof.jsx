@@ -23,7 +23,7 @@ function PreviousBulletProof() {
           sessions and workshops, where Yash shared insights from his
           experiences in the influencer space. The event focused on practical
           advice and personal growth. Anyways here is a out of context quote for
-          somoeone: JavaScript's best-kept secret, with one and half a million
+          somoeone: JavaScript&apos;s best-kept secret, with one and half a million
           squad
         </p>
         {/* <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl text-left z-[1000] relative mt-4">

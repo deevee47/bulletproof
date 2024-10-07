@@ -1,14 +1,22 @@
 "use client"
-import { cn } from "@/lib/utils";
 
-interface MarqueeProps {
+import { type ClassValue } from "clsx"
+import { clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
+import React from 'react'
+
+// Define the cn function once
+const cn = (...inputs: ClassValue[]): string => {
+  return twMerge(clsx(inputs))
+}
+
+interface MarqueeProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string;
   reverse?: boolean;
   pauseOnHover?: boolean;
   children?: React.ReactNode;
   vertical?: boolean;
   repeat?: number;
-  [key: string]: any;
 }
 
 export function Marquee({
@@ -29,24 +37,22 @@ export function Marquee({
           "flex-row": !vertical,
           "flex-col": vertical,
         },
-        className,
+        className
       )}
     >
-      {Array(repeat)
-        .fill(0)
-        .map((_, i) => (
-          <div
-            key={i}
-            className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
-              "animate-marquee flex-row": !vertical,
-              "animate-marquee-vertical flex-col": vertical,
-              "group-hover:[animation-play-state:paused]": pauseOnHover,
-              "[animation-direction:reverse]": reverse,
-            })}
-          >
-            {children}
-          </div>
-        ))}
+      {Array.from({ length: repeat }).map((_, i) => (
+        <div
+          key={i}
+          className={cn("flex shrink-0 justify-around [gap:var(--gap)]", {
+            "animate-marquee flex-row": !vertical,
+            "animate-marquee-vertical flex-col": vertical,
+            "group-hover:[animation-play-state:paused]": pauseOnHover,
+            "[animation-direction:reverse]": reverse,
+          })}
+        >
+          {children}
+        </div>
+      ))}
     </div>
   );
 }
