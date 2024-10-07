@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState, useCallback } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 
 const TopographicBackground: React.FC = () => {
     const svgRef = useRef<SVGSVGElement>(null);
@@ -9,13 +9,10 @@ const TopographicBackground: React.FC = () => {
     const rotationRef = useRef(0);
     const animationFrameIdRef = useRef<number>();
 
-
-
-    // Throttled mouse move handler using requestAnimationFrame
-    const handleMouseMove = useCallback((event: MouseEvent) => {
+    // Throttled mouse move handler using requestAnimationFrame (no event needed)
+    const handleMouseMove = useCallback(() => {
         if (!animationFrameIdRef.current) {
             animationFrameIdRef.current = requestAnimationFrame(() => {
-
                 animationFrameIdRef.current = undefined;
             });
         }
@@ -89,7 +86,6 @@ const TopographicBackground: React.FC = () => {
         let height = window.innerHeight;
         const shapes: SVGPathElement[] = [];
 
-
         const handleResize = () => {
             width = window.innerWidth;
             height = window.innerHeight;
@@ -131,8 +127,8 @@ const TopographicBackground: React.FC = () => {
         const animate = () => {
             timeRef.current += 0.001;
             pulsateRef.current += 0.02;
-            circularMotionRef.current += 0.004;
-            rotationRef.current += 0.004;
+            circularMotionRef.current += 0.002;
+            rotationRef.current += 0.002
             updateShapes(timeRef.current, pulsateRef.current, circularMotionRef.current, rotationRef.current);
             requestAnimationFrame(animate);
         };
