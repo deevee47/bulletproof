@@ -5,7 +5,10 @@ import { Marquee2 } from "@/components/Marquee2";
 
 function PreviousBulletProof() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between w-full px-4 md:px-8 lg:px-16 mb-5">
+    <div
+      id="about"
+      className="flex flex-col md:flex-row items-center justify-between w-full px-4 md:px-8 lg:px-16 mb-5"
+    >
       {" "}
       {/* Stack on mobile, flex row on larger screens */}
       <div className="flex flex-col items-start z-[999] w-full md:w-1/2">
@@ -19,8 +22,9 @@ function PreviousBulletProof() {
           influencer Yash Garg. Attendees had the chance to participate in
           sessions and workshops, where Yash shared insights from his
           experiences in the influencer space. The event focused on practical
-          advice and personal growth. Anyways here is a out of context
-          quote for somoeone: JavaScript's best-kept secret, with one and half a million squad
+          advice and personal growth. Anyways here is a out of context quote for
+          somoeone: JavaScript's best-kept secret, with one and half a million
+          squad
         </p>
         {/* <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl text-left z-[1000] relative mt-4">
           Anyways here is a out of context quote: With over one and half a
