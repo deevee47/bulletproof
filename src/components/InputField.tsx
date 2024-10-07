@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 type InputFieldProps = {
   label: string;
   name: string;
-  type?: 'text' | 'email' | 'password' | 'number' | 'tel';
+  type?: string; // Add any types you need
   value: string;
   placeholder?: string;
   required?: boolean;

@@ -10,7 +10,7 @@ const Landing = () => {
             <div className='z-10 w-full px-4 sm:px-6 lg:px-8 flex justify-center items-center'>
                 <div className='w-full flex flex-col items-center justify-center'>
                     <div className='relative w-full'>
-                        <div className='mx-auto relative w-[100%] sm:w-[70%] aspect-[6/5] sm:-mt-20'>
+                        <div className='mx-auto relative w-[100%] sm:w-[80%] aspect-[6/5] sm:-mt-48'>
                             <Image
                                 className='logo object-contain draggable-none'
                                 src="/logo.png"
@@ -22,14 +22,14 @@ const Landing = () => {
 
                         <div className='-mt-16 sm:-mt-96 transform flex flex-col items-center'>
                             <BlurIn
-                                word="The event you have been waiting for"
+                                word="Learn. Excel. Lead."
                                 className="text-xl sm:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-gray-200 via-gray-400 to-gray-600 [text-shadow:_1px_1px_1px_rgb(0_0_0_/_20%)] text-center"
                             />
 
-                            <div className="mt-4 sm:mt-6 md:mt-8 space-y-2 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl px-4">
-                                <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl text-center">
-                                    Elevating digital defense to an art form. Our cutting-edge security
-                                    protocols ensure your data remains impenetrable.
+                            <div className="mt-2 sm:mt-4 md:mt-4 space-y-2 w-full px-4 flex justify-center items-center">
+                                <p className=" w-[60%] text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl text-center">
+                                    Two game-changing days where tech collides with the future. Exclusive speakers and visionary influencers are set to revolutionize how you see the tech industry.
+
                                 </p>
                             </div>
                             <ul className='mt-10 text-3xl animate-bounce text-gray-400'><ChevronsDown /></ul>

@@ -9,10 +9,11 @@ import { AlertCircle } from 'lucide-react';
 type Field = {
   name: string;
   label: string;
-  type?: string | any;
+  type?: string ; // Add other types you need here
   placeholder: string;
   required?: boolean;
 };
+
 
 type FormProps = {
   fields: Field[];
@@ -147,7 +148,7 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
       onSubmit(formData);
 
       setFormData(fields.reduce((acc, field) => ({ ...acc, [field.name]: '' }), {}));
-    } catch (error) {
+    } catch {
       setSubmitError('An error occurred while submitting the form. Please try again.');
     } finally {
       setIsSubmitting(false);
