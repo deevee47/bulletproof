@@ -110,8 +110,8 @@ const TopographicBackground: React.FC = () => {
         const { width, height } = dimensionsRef.current;
         const { current: anim } = animationRef;
 
-        anim.time += 0.001;
-        anim.pulsate += 0.02;
+        anim.time += 0.003;
+        anim.pulsate += 0.03;
         anim.circularMotion += 0.002;
         anim.rotation += 0.002;
 

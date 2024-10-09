@@ -4,11 +4,12 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from "@/lib/utils";
 
+
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '#about', label: 'About' },
   { href: '#guess', label: 'Guess Speakers!' },
-  { href: 'https://www.youtube.com/watch?v=xvFZjo5PgG0', label: 'Hint' }
+  { href: 'https://www.youtube.com/watch?v=xvFZjo5PgG0', label: 'Clues' }
 ];
 
 const Navbar = () => {
@@ -49,6 +50,7 @@ const Navbar = () => {
     <header className="z-[99999] fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-2xl px-4">
       <nav className="relative px-4 py-3 rounded-2xl backdrop-blur-md bg-black/20 border border-white/10 shadow-lg">
         <ul className="flex justify-center items-center gap-1 sm:gap-2">
+
           {navItems.map((item) => (
             <li key={item.href} className={cn(
               item.href === '/' && 'hidden sm:block' // Hide Home link on mobile

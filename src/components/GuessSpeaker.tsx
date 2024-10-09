@@ -2,6 +2,7 @@
 import React from 'react';
 import Form from './Form';
 import BoxReveal from './ui/box-reveal';
+import Image from 'next/image';
 
 const GuessSpeaker = () => {
   const fields = [
@@ -15,7 +16,7 @@ const GuessSpeaker = () => {
   const handleSubmit = (formData: { [key: string]: string }) => {
     console.log('Form submitted:', formData);
   };
-  const message = "Leaving sneaky hints all over the website! \;\)";
+  const message = "Leaving sneaky hints all over the website!";
 
   return (
     <div id="guess" className='relative min-h-screen flex flex-col justify-center overflow-hidden sm:mt-4 mt-0'>
@@ -26,7 +27,8 @@ const GuessSpeaker = () => {
               Guess Our Speakers
             </h1>
           </BoxReveal>
-          <h3 className='text-gray-400 pt-2 italic animate-pulse'>{message}</h3>
+          <h3 className='text-gray-400 pt-2 italic flex items-center justify-center animate-pulse'>{message} <Image className='animate-pulse rounded-full opacity-50' src="/blacklogo.jpg" width={40} height={40} alt="Guess!" /></h3>
+            
         </div>
         <div className="w-full">
           <Form fields={fields} onSubmit={handleSubmit} />
