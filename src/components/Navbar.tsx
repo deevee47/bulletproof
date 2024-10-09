@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from "@/lib/utils";
 
-
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '#about', label: 'About' },
@@ -48,12 +47,12 @@ const Navbar = () => {
 
   return (
     <header className="z-[99999] fixed top-4 left-1/2 transform -translate-x-1/2 w-full max-w-2xl px-4">
-      <nav className="relative px-4 py-3 rounded-2xl backdrop-blur-md bg-black/20 border border-white/10 shadow-lg">
-        <ul className="flex justify-center items-center gap-1 sm:gap-2">
-
+      <nav className="relative px-4 py-3 rounded-2xl backdrop-blur-md bg-gradient-to-r from-yellow-500/30 via-orange-500/30 to-red-500/30 bg-opacity-10 border border-white/10 shadow-lg">
+        <div className="absolute inset-0 rounded-2xl bg-black/40 backdrop-blur-md" />
+        <ul className="relative flex justify-center items-center gap-1 sm:gap-2 text-white">
           {navItems.map((item) => (
             <li key={item.href} className={cn(
-              item.href === '/' && 'hidden sm:block' // Hide Home link on mobile
+              item.href === '/' && 'hidden sm:block'
             )}>
               <Link
                 href={item.href}

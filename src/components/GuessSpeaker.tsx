@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const GuessSpeaker = () => {
   const fields = [
-    { name: 'entry.2029444953', label: 'First Name', type: 'text', placeholder: "Enter Your First Name", required: true },
+    { name: 'entry.2029444953', label: 'First Name', type: 'text', placeholder: "Mehul", required: true },
     { name: 'entry.414857056', label: 'Last Name', type: 'text', placeholder: "Enter Your Last Name", required: true },
     { name: 'entry.909872393', label: 'Bennett Email Address', type: 'email', placeholder: "Enter Bennett Email Address", required: true },
     { name: 'entry.726139344', label: 'What do you expect from the event?', placeholder: "We can make anything happen!", type: 'text', required: true },
