@@ -17,7 +17,7 @@ function PreviousBulletProof() {
           influencer Yash Garg. Attendees had the chance to participate in
           sessions and workshops, where Yash shared insights from his
           experiences in the influencer space. The event focused on practical
-          advice and personal growth. Anyways here is a out of context quote for
+          advice and personal growth. Here is a out of context quote for
           someone: JavaScript&apos;s best-kept secret, with one and half a million
           squad.
         </p>

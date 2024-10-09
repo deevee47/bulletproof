@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: "https://atc-bulletproof.vercel.app/", 
     images: [
       {
-        url: "logo.jpg", 
+        url: "/logo.png", 
         width: 1200,
         height: 630,
         alt: "BulletProof 2.0 Event",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "BulletProof 2.0",
     description: "Transform, challenge, conquer! Join us Oct 15-16 for the ultimate unstoppable experience. #BulletProof2",
     creator: "@alanturingclub", // Replace with your Twitter handle
-    images: ["logo.jpg"],
+    images: ["logo.png"],
   },
 };
 
