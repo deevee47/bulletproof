@@ -2,7 +2,7 @@ import GuessSpeaker from "@/components/GuessSpeaker";
 import Landing from "@/components/Landing";
 import TopographicBackground from "@/components/TopographicBackground";
 import PreviousBulletProof from "@/components/PreviousBulletProof";
-
+import OurSponsors from "@/components/OurSponsors";
 
 
 export default function Home() {
@@ -10,8 +10,10 @@ export default function Home() {
     <div className="bg-black">
       <TopographicBackground />
       <Landing />
+      <OurSponsors />
       <PreviousBulletProof />
       <GuessSpeaker />
+      
     </div>
   );
 }
