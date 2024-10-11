@@ -2,7 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 
 const OurSponsors = () => {
-  const sponsorImages = ['/1.png', '/s2.jpg', '/3.png', '/4.png', '/s5.png'];
+  const sponsorImages = ['/1.png', '/s2.jpg', '/3.png', '/4.png', '/s5.png', '/6.png', '/7.png'];
 
   return (
     <div className="container mx-auto px-4 py-6 my-4">
