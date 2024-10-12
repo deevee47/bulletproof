@@ -5,7 +5,7 @@ const speakers = [
     day: 'Day 1',
     event: 'Event 1 - Workshop',
     eventtime: "Time-something",
-    event1: "Event Guest - Akshat Saini",
+    event1: "Event Guest - Akshay Saini",
     eventtime1:  "Time-something"
   },
 

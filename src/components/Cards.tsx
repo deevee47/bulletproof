@@ -2,7 +2,7 @@ import SpeakerCard from '../components/Speakers';
 
 const speakers = [
   {
-    name: 'Akshat Saini',
+    name: 'Akshay Saini',
     role: 'Influencer',
     linkedin: 'https://www.linkedin.com/in/akshaymarch7/?originalSubdomain=in',
     github: 'https://github.com/akshaymarch7',
