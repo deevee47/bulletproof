@@ -1,9 +1,19 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { LinkedinIcon, GithubIcon } from 'lucide-react';
 
-const SpeakerCard = ({ name, role, linkedin, github, image }) => {
+// Define the prop types
+type SpeakerCardProps = {
+  name: string;
+  role: string;
+  linkedin: string;
+  github: string;
+  image: string;
+};
+
+const SpeakerCard: React.FC<SpeakerCardProps> = ({ name, role, linkedin, github, image }) => {
+  const [imgSrc, setImgSrc] = useState(image);
 
   return (
     <div className="bg-[rgba(255,255,255,0.1)] backdrop-blur-lg rounded-lg p-6 w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-300 ease-in-out">
@@ -15,7 +25,7 @@ const SpeakerCard = ({ name, role, linkedin, github, image }) => {
             alt={`${name}'s Profile Picture`}
             width={96}
             height={96}
-            //onError={() => setImgSrc('https://via.placeholder.com/96')} // Fallback image
+            onError={() => setImgSrc('/placeholder.jpg')} // Fallback image
           />
         </div>
         <h2 className="text-2xl font-bold text-[rgba(0,0,255,1)] mb-1 tracking-tight">{name}</h2>

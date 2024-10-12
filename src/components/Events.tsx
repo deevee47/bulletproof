@@ -1,9 +1,15 @@
 'use client';
 import React from "react";
 
-const EventCard = ({ day,  event, eventtime, event1,eventtime1 }) => {
+type EventCardProps = {
+  day: string;
+  event: string;
+  eventtime: string;
+  event1: string;
+  eventtime1: string;
+};
 
-
+const EventCard: React.FC<EventCardProps> = ({ day, event, eventtime, event1, eventtime1 }) => {
   return (
     <div className="bg-[rgba(255,255,255,0.15)] backdrop-blur-lg rounded-lg shadow-lg p-6 w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-300 ease-in-out">
       <div className="flex flex-col items-center">
