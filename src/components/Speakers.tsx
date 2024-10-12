@@ -1,10 +1,9 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { LinkedinIcon, GithubIcon } from 'lucide-react';
 
-const SpeakerCard = ({ name, role, email, phone, location, linkedin, github, image }) => {
-  const [imgSrc, setImgSrc] = useState(image);
+const SpeakerCard = ({ name, role, linkedin, github, image }) => {
 
   return (
     <div className="bg-[rgba(255,255,255,0.1)] backdrop-blur-lg rounded-lg p-6 w-full max-w-md mx-auto transform hover:scale-105 transition-transform duration-300 ease-in-out">
