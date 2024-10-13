@@ -11,8 +11,8 @@ const speakers = [
 
   {
     day:"Day 2",
-    event: "Event 1 - Workshop",
-    eventtime:  "Time-something",
+    event: "",
+    eventtime:  "",
     event1:  "Event Guest - Mehul Mohan",
     eventtime1:   "Time-something"
   },
