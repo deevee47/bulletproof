@@ -13,7 +13,7 @@ const speakers = [
     role: 'Founder - Codedamn',
     linkedin: 'https://www.linkedin.com/in/mehulmpt/?originalSubdomain=in',
     github: 'https://github.com/mehulmpt',
-    image: '/mehul.jpeg',
+    image: '/Mehul.jpeg',
   },
   // Add more speakers here
 ];
