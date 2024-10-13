@@ -15,7 +15,7 @@ export default function Home() {
       <OurSponsors />
       
       <GuessSpeaker />
-      <Day2 />
+      {/* <Day2 /> */}
       
     </div>
   );
