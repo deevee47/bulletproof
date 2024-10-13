@@ -16,8 +16,8 @@ function Events() {
             <h1 className='pb-3 pt-3 pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-left text-4xl md:text-6xl lg:text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10'>
               Day 1
             </h1>
-            <h2 className='font-bold text-lg sm:text-xl md:text-2xl'>Event One: Bit By Bit</h2>
-            <h2 className='font-bold text-lg sm:text-xl md:text-2xl'>Event Two: Akshay Saini's Session</h2>
+
+            <h2 className='font-bold text-lg sm:text-xl md:text-2xl'>Event One: Akshay Saini's Session</h2>
             <p className='mt-2 text-xs sm:text-sm md:text-base'>
               Akshay Saini is the creator of Namaste Dev, a popular YouTube channel focused on web development. He is a seasoned software engineer with experience at companies like Amazon and Directi. Akshay is known for his in-depth tutorials on JavaScript and other web technologies, making complex topics easy to understand for developers.
             </p>
