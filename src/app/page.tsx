@@ -13,7 +13,7 @@ export default function Home() {
       <Landing />
       <Card />
       <OurSponsors />
-      <PreviousBulletProof />
+      
       <GuessSpeaker />
       <Day2 />
       
