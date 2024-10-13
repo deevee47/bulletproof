@@ -4,16 +4,18 @@ import TopographicBackground from "@/components/TopographicBackground";
 import PreviousBulletProof from "@/components/PreviousBulletProof";
 import OurSponsors from "@/components/OurSponsors";
 import Card from "@/components/Card";
+import Day2 from "@/components/mehulreg";
+
 export default function Home() {
   return (
     <div className="bg-black">
       <TopographicBackground />
       <Landing />
-      
-      <OurSponsors />
       <Card />
+      <OurSponsors />
       <PreviousBulletProof />
       <GuessSpeaker />
+      <Day2 />
       
     </div>
   );
