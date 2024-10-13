@@ -17,7 +17,7 @@ function Events() {
               Day 1
             </h1>
 
-            <h2 className='font-bold text-lg sm:text-xl md:text-2xl'>Event One: Akshay Saini's Session</h2>
+            <h2 className='font-bold text-lg sm:text-xl md:text-2xl'>Event One: Akshay Saini&apos;s Session</h2>
             <p className='mt-2 text-xs sm:text-sm md:text-base'>
               Akshay Saini is the creator of Namaste Dev, a popular YouTube channel focused on web development. He is a seasoned software engineer with experience at companies like Amazon and Directi. Akshay is known for his in-depth tutorials on JavaScript and other web technologies, making complex topics easy to understand for developers.
             </p>
@@ -36,7 +36,7 @@ function Events() {
               Day 2
             </h1>
             <h2 className='font-bold text-lg sm:text-xl md:text-2xl'>Event One: Logic League</h2>
-            <h2 className='font-bold text-lg sm:text-xl md:text-2xl'>Event Two: Mehul Mohan's Session</h2>
+            <h2 className='font-bold text-lg sm:text-xl md:text-2xl'>Event Two: Mehul Mohan&apos;s Session</h2>
             <p className='mt-2 text-xs sm:text-sm md:text-base'>
               Mehul Mohan is the founder of CodeDamn, an interactive learning platform for developers. He is a full-stack developer, educator, and YouTuber who creates content focused on web development, programming, and tech careers. Through CodeDamn, he aims to provide hands-on coding experience and project-based learning for aspiring developers.
             </p>
