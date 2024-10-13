@@ -1,3 +1,5 @@
+
+
 'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -7,8 +9,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '#about', label: 'About' },
-  { href: '#guess', label: 'Registrations!!' },
-  { href: 'https://www.youtube.com/watch?v=xvFZjo5PgG0', label: 'Clues' }
+  { href: '#guess', label: 'Register!' },
 ];
 
 const Navbar = () => {
