@@ -3,17 +3,17 @@ import SpeakerCard from '../components/Speakers';
 const speakers = [
   {
     name: 'Akshay Saini',
-    role: 'Influencer',
+    role: 'Founder - Namaste Dev',
     linkedin: 'https://www.linkedin.com/in/akshaymarch7/?originalSubdomain=in',
     github: 'https://github.com/akshaymarch7',
     image: '/akshay.jpeg',
   },
   {
-    name: '???',
-    role: '????',
-    linkedin: 'Hint NHi Hai',
-    github: 'Hints Dekho',
-    image: '/placeholder.jpg',
+    name: 'Mehul Mohan',
+    role: 'Founder - Codedamn',
+    linkedin: 'https://www.linkedin.com/in/mehulmpt/?originalSubdomain=in',
+    github: 'https://github.com/mehulmpt',
+    image: '/mehul.jpeg',
   },
   // Add more speakers here
 ];
