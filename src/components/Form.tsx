@@ -194,7 +194,7 @@ const Form: React.FC<FormProps> = ({ fields, onSubmit }) => {
             isLoading={isSubmitting}
             disabled={cooldownRemaining > 0 || submissionCount >= SUBMISSION_LIMIT}
           >
-            Submit Your Guess
+            Submit
           </Button>
           {cooldownRemaining > 0 && (
             <p className="text-sm text-gray-400">

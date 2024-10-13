@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 const navItems = [
   { href: '/', label: 'Home' },
   { href: '#about', label: 'About' },
-  { href: '#guess', label: 'Guess Speakers!' },
+  { href: '#guess', label: 'Registrations!!' },
   { href: 'https://www.youtube.com/watch?v=xvFZjo5PgG0', label: 'Clues' }
 ];
 
