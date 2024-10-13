@@ -3,17 +3,15 @@ import Landing from "@/components/Landing";
 import TopographicBackground from "@/components/TopographicBackground";
 import PreviousBulletProof from "@/components/PreviousBulletProof";
 import OurSponsors from "@/components/OurSponsors";
-import Cards from "@/components/Cards";
-import EveCards from "@/components/EventCards";
-
+import Card from "@/components/Card";
 export default function Home() {
   return (
     <div className="bg-black">
       <TopographicBackground />
       <Landing />
-      <Cards />
-      <EveCards />
+      
       <OurSponsors />
+      <Card />
       <PreviousBulletProof />
       <GuessSpeaker />
       
