@@ -20,7 +20,7 @@ function Events() {
           </div>
           <div className="w-full md:w-1/2 lg:w-3/4">
             <h1 className="pb-3 pt-3 bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-left text-4xl md:text-5xl lg:text-6xl font-bold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-              Day 1
+              15<span className="align-super text-3xl">th</span> October
             </h1>
             <h2 className="font-semibold text-lg sm:text-xl md:text-2xl text-yellow-400">
               Akshay Saini&apos;s Session
@@ -30,8 +30,9 @@ function Events() {
             </h3>
             <p className="mt-5 text-sm sm:text-base text-gray-100">
               Akshay Saini, creator of Namaste Dev, simplifies web development
-              with his expertise. With experience at Amazon and Directi, he&apso;s best
-              known for breaking down complex JavaScript concepts.
+              with his expertise. With experience at Amazon and Directi,
+              he&apso;s best known for breaking down complex JavaScript
+              concepts.
             </p>
           </div>
         </div>
@@ -51,7 +52,7 @@ function Events() {
           </div>
           <div className="w-full md:w-1/2 lg:w-3/4">
             <h1 className="pb-3 pt-3 bg-gradient-to-b from-black to-gray-300/80 bg-clip-text text-left text-4xl md:text-5xl lg:text-6xl font-bold leading-none text-transparent dark:from-white dark:to-slate-900/10">
-              Day 2
+              16<span className="align-super text-3xl">th</span> October
             </h1>
             <h2 className="font-semibold text-lg sm:text-xl md:text-2xl text-yellow-400">
               Logic League & Mehul Mohan&apos;s Session
