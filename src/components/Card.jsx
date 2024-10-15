@@ -26,12 +26,12 @@ function Events() {
               Akshay Saini&apos;s Session
             </h2>
             <h3 className="font-bold text-md sm:text-lg text-white">
-              Time: 5:00 PM | Venue: 101 NLH
+              Time: 5:00 PM Onwards | Venue: 101 NLH
             </h3>
             <p className="mt-5 text-sm sm:text-base text-gray-100">
               Akshay Saini, creator of Namaste Dev, simplifies web development
               with his expertise. With experience at Amazon and Directi,
-              he&apso;s best known for breaking down complex JavaScript
+              he is best known for breaking down complex JavaScript
               concepts.
             </p>
           </div>
@@ -58,7 +58,7 @@ function Events() {
               Logic League & Mehul Mohan&apos;s Session
             </h2>
             <h3 className="font-bold text-md sm:text-lg text-white">
-              Time: 5:00 PM | Venue: 101 NLH
+              Time: 5:00 PM Onwards | Venue: 101 NLH
             </h3>
             <p className="mt-5 text-sm sm:text-base text-gray-100">
               Mehul Mohan, founder of CodeDamn, focuses on hands-on learning.
