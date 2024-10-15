@@ -32,39 +32,68 @@ const GuessSpeaker = () => {
       to_email: recipientEmail,
       subject: 'Welcome to Bulletproof 2.0 – Reservation Confirmed!',
       message: `
-      <h2>Dear {{to_name}},</h2>
+    <h2>Dear ${recipientName},</h2>
 
-      <p>We hope this message finds you well!</p>
+    <p>We hope this message finds you well!</p>
 
-      <p>We are delighted to inform you that your seat has been successfully reserved for <strong>Bulletproof 2.0</strong>! Thank you for registering – we can't wait to have you with us for this exciting event.</p>
+    <p>We are delighted to inform you that your seat has been successfully reserved for <strong>Bulletproof 2.0</strong>! Thank you for registering – we can't wait to have you with us for this exciting event.</p>
 
-      <h3>Event Details:</h3>
-      <ul>
-        <li>📅 <strong>Date:</strong> 15th-16th October</li>
-        <li>🕒 <strong>Time:</strong> 5:30 PM</li>
-        <li>📍 <strong>Venue:</strong> 101-NLH</li>
-      </ul>
+    <h3>Event Details:</h3>
+    <ul>
+      <li>📅 <strong>Date:</strong> 15th-16th October</li>
+      <li>🕒 <strong>Time:</strong> 5:30 PM</li>
+      <li>📍 <strong>Venue:</strong> 101-NLH</li>
+    </ul>
 
-      <p>You've registered for: ${formData['entry.1373895948']}</p>
+    <p>You've registered for: ${formData['entry.1373895948']}</p>
 
-      <p>Please ensure you arrive on time to avoid any delays. If you have any questions or need further assistance, feel free to reach out.</p>
+    <p>Please ensure you arrive on time to avoid any delays. If you have any questions or need further assistance, feel free to reach out.</p>
 
-      <p>We look forward to seeing you at Bulletproof 2.0! 🚀</p>
+    <p>We look forward to seeing you at Bulletproof 2.0! 🚀</p>
 
-      <p>Best regards,<br>Alan Turing Club<br>Bennett University</p>
-    `
+    <p>Best regards,<br>Alan Turing Club<br>Bennett University</p>
+  `
     };
 
     try {
-      const result = await emailjs.send(
+      // EmailJS submission
+      const emailResult = await emailjs.send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || '',
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || '',
         templateParams
       );
-      console.log('Email sent successfully:', result.text);
+      console.log('Email sent successfully:', emailResult.text);
+
+      // Google Form submission
+      const googleFormUrl = process.env.NEXT_PUBLIC_GOOGLE_FORM_URL || '';
+      const formBody = new URLSearchParams(formData).toString();
+
+      // Create a hidden iframe
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      document.body.appendChild(iframe);
+
+      // Create a form inside the iframe and submit it
+      const form = iframe.contentDocument?.createElement('form');
+      if (form) {
+        form.action = googleFormUrl;
+        form.method = 'POST';
+        form.innerHTML = formBody.split('&').map(pair => {
+          const [name, value] = pair.split('=');
+          return `<input type="hidden" name="${decodeURIComponent(name)}" value="${decodeURIComponent(value)}">`;
+        }).join('');
+        iframe.contentDocument?.body.appendChild(form);
+        form.submit();
+      }
+
+      // Remove the iframe after submission
+      setTimeout(() => {
+        document.body.removeChild(iframe);
+      }, 1000);
+
       setSubmitStatus('success');
     } catch (error) {
-      console.error('Failed to send email:', error);
+      console.error('Failed to submit form:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
