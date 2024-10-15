@@ -31,7 +31,7 @@ function Events() {
             <p className="mt-5 text-sm sm:text-base text-gray-100">
               Akshay Saini, creator of Namaste Dev, simplifies web development
               with his expertise. With experience at Amazon and Directi,
-              he&apso;s best known for breaking down complex JavaScript
+              he is best known for breaking down complex JavaScript
               concepts.
             </p>
           </div>
