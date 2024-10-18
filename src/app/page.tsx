@@ -8,12 +8,12 @@ import GalleryPage from "@/components/GalleryPage";
 export default function Home() {
   return (
     <div className="bg-black">
-      {/* <TopographicBackground /> */}
+      <TopographicBackground />
       <Landing />
       <Card />
       <OurSponsors />
       <GalleryPage />
-      <GuessSpeaker />
+      {/* <GuessSpeaker /> */}
       
     </div>
   );
