@@ -1,4 +1,4 @@
-import GuessSpeaker from "@/components/GuessSpeaker";
+// import GuessSpeaker from "@/components/GuessSpeaker";
 import Landing from "@/components/Landing";
 import TopographicBackground from "@/components/TopographicBackground";
 import OurSponsors from "@/components/OurSponsors";
